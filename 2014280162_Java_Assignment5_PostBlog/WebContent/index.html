@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Forum</title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#login").click(function() {
+			//alert("yes");
+			data = {};
+			data.id = $("#userid").val();
+			data.pass = $("#password").val();
+			$.ajax({
+				type : 'POST',
+				url : 'http://localhost:8080/PostBlog/Login',
+				data : data,
+				dataType : "json",
+				success : function(data) { //成功 
+					alert(data.isSuccess);
+				}
+			});
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div>
+		<h1>THU Share</h1>
+	</div>
+	<table>
+		<tr>
+			<td>User ID:</td>
+			<td><input type="text" id="userid" name="user id" /></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" id="password" name="pass" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" id="login" value="Login" /></td>
+			<td><input type="submit" value="New User"
+				onclick="location.href = 'newuser.html';" /></td>
+		</tr>
+	</table>
+	<hr />
+	<div>
+		<ul>
+			<li><a href="topic.html">Java is a very nice language, every one
+					agree!!!</a></li>
+			<li><a href="#">Every one is China, I like staying here!!!</a></li>
+			<li><a href="#">I am very tired of the bad air quality here,
+					Wish to go home!!!</a></li>
+			<li><a href="#">I am looking forward to the new hobbit
+					movie, any one wants to watch!!!</a></li>
+			<li><a href="#">I want to learn to program nicely!!!</a></li>
+		</ul>
+	</div>
+</body>
+</html>
